@@ -152,7 +152,7 @@ ul {
   transition: 0.3s;
 }
 
-.imgLinks a p,
+.imgLinks p,
 .mainPage p {
   padding-top: 8px;
   font-size: 12px;
@@ -160,9 +160,7 @@ ul {
   font-weight: 700;
 }
 
-#rock,
-#pop,
-#hiphop {
+.custom-section {
   color: white;
   font-weight: 700;
   padding-top: 50px;
