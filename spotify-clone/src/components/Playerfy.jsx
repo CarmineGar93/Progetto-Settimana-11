@@ -11,15 +11,15 @@ function Playerfy() {
     return (
         <Row className="h-100">
             <Col lg={10} className="offset-lg-2">
-                <Row className="h-100 justify-content-between align-items-center">
-                    <Col xs={4} md={3} className="d-flex ms-lg-5 ms-xl-0">
+                <Row className="h-100 justify-content-between align-items-center g-0">
+                    <Col xs={5} sm={3} className="d-flex ms-lg-5 ms-xl-0">
                         {
                             song && <>
                                 <div>
                                     <img src={song.album.cover_medium} alt="" width={60} />
                                 </div>
                                 <div>
-                                    <p className="text-white mb-0 custom">{song.title}</p>
+                                    <p className="text-white mb-0 custom">{song.title.length > 20 ? song.title.slice(0, song.title.indexOf(" ", 20)) : song.title}</p>
                                     <p className="text-white mb-0 custom">{song.artist.name}</p>
                                 </div>
                             </>
