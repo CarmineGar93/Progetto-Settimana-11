@@ -9,7 +9,7 @@ const persistConfig = {
 }
 
 const mainReducer = combineReducers({
-    song: songReducer
+    song: songReducer,
 })
 
 const persistedReducer = persistReducer(persistConfig, mainReducer)

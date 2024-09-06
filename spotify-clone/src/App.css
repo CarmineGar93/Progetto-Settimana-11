@@ -177,3 +177,7 @@ ul {
 .pointer {
   cursor: pointer;
 }
+
+.custom-img {
+  width: 30px!important;
+}
