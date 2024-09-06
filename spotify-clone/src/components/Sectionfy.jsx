@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Col, Row } from 'react-bootstrap'
+import { useDispatch } from 'react-redux'
+import { AddSongAction, StopSongAction } from '../redux/actions/actions'
+
 
 function Sectionfy(props) {
     const [songs, setSongs] = useState([])
@@ -20,9 +23,11 @@ function Sectionfy(props) {
         }
     }
     useEffect(()=>{
+        dispatch(StopSongAction)
         fillMusicSection()
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+    const dispatch = useDispatch()
     return (
         <Col xs={10} className='custom-section'>
             <h2>{props.title}</h2>
@@ -30,7 +35,7 @@ function Sectionfy(props) {
                 {
                     songs.map(s=>{
                         return (
-                            <Col key={s.id} className='text-center'>
+                            <Col key={s.id} className='text-center pointer' onClick={()=>dispatch(AddSongAction(s))}>
                                 <img src={s.album.cover_medium} alt="track" className='img-fluid'/>
                                 <p className='mb-0'>Track: {s.title}</p>
                                 <p>Artist: {s.artist.name}</p>

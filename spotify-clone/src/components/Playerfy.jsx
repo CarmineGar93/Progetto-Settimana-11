@@ -1,10 +1,26 @@
 import { Col, Row } from "react-bootstrap"
+import { useSelector } from "react-redux"
 
 function Playerfy() {
+    const song = useSelector(state=>state.song.song)
     return (
         <Row className="h-100">
             <Col lg={10} className="offset-md-2 offset-lg-2">
-                <Row className="h-100 flex-column justify-content-center align-items-center">
+                <Row className="h-100 justify-content-around align-items-center">
+                    <Col xs={3} md={3} className="d-flex ">
+                    {
+                        song && <>
+                        <div>
+                            <img src={song.album.cover_medium} alt="" width={80}/>
+                        </div>
+                        <div>
+                            <p className="text-white mb-0 custom">{song.title}</p>
+                            <p className="text-white mb-0 custom">{song.artist.name}</p>
+                        </div>
+                        </>
+                    }
+                        
+                    </Col>
                     <Col xs={6} md={4} className="playerControls">
                         <div className="d-flex">
                             <a href="#a">
