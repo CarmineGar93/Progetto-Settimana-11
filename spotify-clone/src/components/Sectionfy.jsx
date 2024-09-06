@@ -36,7 +36,7 @@ function Sectionfy(props) {
     }, [])
     const dispatch = useDispatch()
     return (
-        <Col xs={10} className='custom-section'>
+        <Col xs={12} lg={10} className='custom-section'>
             <h2>{props.title}</h2>
             <Row xs={1} sm={2} lg={4} xl={4} className='py-3 imgLinks'>
                 {

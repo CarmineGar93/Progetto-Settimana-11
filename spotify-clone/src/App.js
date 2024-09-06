@@ -15,7 +15,7 @@ function App() {
           <Col xs={2} className='d-none d-lg-block'>
             <Navbarfy />
           </Col>
-          <Col xs={12} md={9} className='offset-md-3 main-page'>
+          <Col xs={12} lg={9} className='offset-lg-3 main-page'>
           <Routes>
             <Route path='/' element={<Mainfy />}></Route>
             <Route path='/search/:search' element={<Searchfy />} />
