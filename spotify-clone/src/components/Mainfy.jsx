@@ -17,6 +17,7 @@ function Mainfy() {
                 <Sectionfy title='Rock Classics' search='queen' />
                 <Sectionfy title='Pop Classics' search='katyperry' />
                 <Sectionfy title='HipHop Classics' search='eminem' />
+                <div className=" invisible custom-margin">a</div>
             </Row>
         </>
     )
