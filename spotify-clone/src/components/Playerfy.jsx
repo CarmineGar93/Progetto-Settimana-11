@@ -12,7 +12,7 @@ function Playerfy() {
         <Row className="h-100">
             <Col lg={10} className="offset-lg-2">
                 <Row className="h-100 justify-content-between align-items-center">
-                    <Col xs={4} md={3} className="d-flex ">
+                    <Col xs={4} md={3} className="d-flex ms-lg-5 ms-xl-0">
                         {
                             song && <>
                                 <div>
