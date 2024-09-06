@@ -12,7 +12,7 @@ function App() {
    <BrowserRouter>
       <Container fluid>
         <Row>
-          <Col xs={2} className='d-none d-md-block'>
+          <Col xs={2} className='d-none d-lg-block'>
             <Navbarfy />
           </Col>
           <Col xs={12} md={9} className='offset-md-3 main-page'>

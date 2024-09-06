@@ -10,7 +10,7 @@ function Playerfy() {
     const dispatch = useDispatch()
     return (
         <Row className="h-100">
-            <Col lg={10} className="offset-md-2 offset-lg-2">
+            <Col lg={10} className="offset-lg-2">
                 <Row className="h-100 justify-content-around align-items-center">
                     <Col xs={3} md={3} className="d-flex ">
                         {
