@@ -4,6 +4,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import './App.css';
 import Navbarfy from './components/Navbarfy';
 import Mainfy from './components/Mainfy';
+import Playerfy from './components/Playerfy';
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
           </Routes>
           </Col>
         </Row>
+      </Container>
+      <Container fluid className='fixed-bottom bg-container pt-1'>
+        <Playerfy />
       </Container>
    </BrowserRouter>
   );
