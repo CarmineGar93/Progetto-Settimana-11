@@ -11,22 +11,22 @@ function Playerfy() {
     return (
         <Row className="h-100">
             <Col lg={10} className="offset-lg-2">
-                <Row className="h-100 justify-content-around align-items-center">
-                    <Col xs={3} md={3} className="d-flex ">
+                <Row className="h-100 justify-content-between align-items-center">
+                    <Col xs={4} md={3} className="d-flex ">
                         {
                             song && <>
                                 <div>
                                     <img src={song.album.cover_medium} alt="" width={60} />
                                 </div>
                                 <div>
-                                    <p className="text-white mb-0 custom mt-2">{song.title}</p>
-                                    <p className="text-white mb-0 custom mt-2">{song.artist.name}</p>
+                                    <p className="text-white mb-0 custom">{song.title}</p>
+                                    <p className="text-white mb-0 custom">{song.artist.name}</p>
                                 </div>
                             </>
                         }
 
                     </Col>
-                    <Col xs={6} md={6} className="playerControls">
+                    <Col xs={7} md={7} className="playerControls">
                         <div className="d-flex">
                             <a href="#a">
                                 <img src="/shuffle.png" alt="shuffle" />
@@ -56,11 +56,11 @@ function Playerfy() {
                             <div role="progressbar"></div>
                         </div>
                     </Col>
-                    <Col xs={1}>
+                    <Col xs={1} className=" d-none d-sm-block">
                         <div className="text-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill={
                                 fav.find(s=> s.id === song.id) ? 'green' : "gray"
-                            } className="bi bi-heart-fill" viewBox="0 0 16 16"  onClick={() => {
+                            } className="bi bi-heart-fill pointer" viewBox="0 0 16 16"  onClick={() => {
                                 !fav.find(s=> s.id === song.id) ?
                                   dispatch(AddToFavAction(song)) : dispatch(RemoveFromFavAction(song))
                               }}>
