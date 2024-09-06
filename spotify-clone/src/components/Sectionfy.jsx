@@ -33,7 +33,7 @@ function Sectionfy(props) {
         dispatch(StopSongAction)
         fillMusicSection()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [props])
     const dispatch = useDispatch()
     return (
         <Col xs={12} lg={10} className='custom-section'>
