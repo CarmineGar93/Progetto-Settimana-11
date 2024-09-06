@@ -26,7 +26,7 @@ function Sectionfy(props) {
     return (
         <Col xs={10} className='custom-section'>
             <h2>{props.title}</h2>
-            <Row xs={1} sm={2} lg={3} xl={4} className='py-3 imgLinks'>
+            <Row xs={1} sm={2} lg={4} xl={4} className='py-3 imgLinks'>
                 {
                     songs.map(s=>{
                         return (
