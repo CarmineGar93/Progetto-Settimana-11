@@ -35,7 +35,7 @@ function Navbarfy() {
                     </Nav>
                 </Navbar.Collapse>
             </Container>
-            <div class="d-flex flex-column align-items-center w-100">
+            <div className="d-flex flex-column align-items-center w-100">
                 <Button className='signup-btn'>Sign Up</Button>
                 <Button className="login-btn" type="button">Login</Button>
                 <div className='nav-btn'>
