@@ -4,9 +4,18 @@ import book from '../book.svg'
 
 import Favouritefy from './Favouritefy'
 import { useState } from 'react'
+import {useNavigate} from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { AddSearchAction } from '../redux/actions/actions'
 
 function Navbarfy() {
     const[tofind, setTofind] = useState('')
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const handleClick = () => {
+        dispatch(AddSearchAction(tofind))
+        setTofind('')
+    }
     return (
         <Navbar expand="md" className="fixed-left justify-content-between">
             <Container className='flex-column align-items-start'>
@@ -34,7 +43,7 @@ function Navbarfy() {
                                 value={tofind}
                                 onChange={(e)=>setTofind(e.target.value)}
                             />
-                            <Button variant="outline-secondary" id="button-addon2">
+                            <Button variant="outline-secondary" id="button-addon2" onClick={handleClick}>
                                 Go
                             </Button>
                         </InputGroup>
