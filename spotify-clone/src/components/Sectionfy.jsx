@@ -8,6 +8,7 @@ import { useLocation } from 'react-router-dom'
 function Sectionfy(props) {
     const location = useLocation().pathname
     const [songs, setSongs] = useState([])
+    const [isMounted, setisMounted] = useState(false)
     const fillMusicSection = async () => {
         try {
             let response = await fetch(
@@ -30,10 +31,18 @@ function Sectionfy(props) {
         }
     }
     useEffect(()=>{
+        if (!isMounted) {
+            setisMounted(true)
+            return
+        }
         dispatch(StopSongAction)
         fillMusicSection()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [props])
+    }, [props.search])
+    useEffect(()=> {
+        dispatch(StopSongAction)
+        fillMusicSection()
+    }, [])
     const dispatch = useDispatch()
     return (
         <Col xs={12} lg={10} className='custom-section'>
