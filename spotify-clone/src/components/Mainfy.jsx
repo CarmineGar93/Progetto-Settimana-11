@@ -2,14 +2,19 @@ import { Col, Row } from "react-bootstrap";
 import Sectionfy from "./Sectionfy";
 import { useDispatch, useSelector } from "react-redux";
 import { StopSongAction } from "../redux/actions/actions";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function Mainfy() {
+    const [isMounted, setisMounted] = useState(false)
     const song = useSelector(state=>state.song.song)
     const isPlaying = useSelector(state=>state.song.isPlaying)
     const audioRef = useRef(null); // Riferimento all'elemento audio
     const dispatch = useDispatch()
     useEffect(()=>{
+        if(!isMounted){
+            setisMounted(true)
+            return
+        }
         if(audioRef) {
             if(isPlaying) {
                 audioRef.current.play()

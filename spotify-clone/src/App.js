@@ -17,6 +17,7 @@ function App() {
           <Col xs={12} md={9} className='offset-md-3 main-page'>
           <Routes>
             <Route path='/' element={<Mainfy />}></Route>
+            <Route path='/search/:search' element={<Mainfy />} />
           </Routes>
           </Col>
         </Row>

@@ -5,15 +5,12 @@ import book from '../book.svg'
 import Favouritefy from './Favouritefy'
 import { useState } from 'react'
 import {useNavigate} from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { AddSearchAction } from '../redux/actions/actions'
 
 function Navbarfy() {
     const[tofind, setTofind] = useState('')
     const navigate = useNavigate()
-    const dispatch = useDispatch()
     const handleClick = () => {
-        dispatch(AddSearchAction(tofind))
+        navigate(`/search/${tofind}`)
         setTofind('')
     }
     return (

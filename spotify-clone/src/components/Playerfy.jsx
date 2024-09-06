@@ -16,11 +16,11 @@ function Playerfy() {
                         {
                             song && <>
                                 <div>
-                                    <img src={song.album.cover_medium} alt="" width={80} />
+                                    <img src={song.album.cover_medium} alt="" width={60} />
                                 </div>
                                 <div>
-                                    <p className="text-white mb-0 custom">{song.title}</p>
-                                    <p className="text-white mb-0 custom">{song.artist.name}</p>
+                                    <p className="text-white mb-0 custom mt-2">{song.title}</p>
+                                    <p className="text-white mb-0 custom mt-2">{song.artist.name}</p>
                                 </div>
                             </>
                         }

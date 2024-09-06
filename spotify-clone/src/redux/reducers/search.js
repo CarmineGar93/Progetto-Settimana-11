@@ -1,7 +1,7 @@
 import {ADD_SEARCH} from '../actions/actions'
 
 const initialState = {
-    searched: ''
+    searched: null
 }
 
 const searchReducer = (state=initialState, action) => {
