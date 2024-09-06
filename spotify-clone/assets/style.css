@@ -9,7 +9,7 @@ body {
 }
 
 /*SIDEBAR SECTION*/
-.fixed-left {
+.navbar.fixed-left {
   position: fixed;
   top: 0;
   left: 0;
