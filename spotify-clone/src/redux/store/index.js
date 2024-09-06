@@ -2,6 +2,7 @@ import {configureStore, combineReducers} from '@reduxjs/toolkit'
 import {persistReducer, persistStore} from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import songReducer from '../reducers/song'
+import favReducer from '../reducers/fav'
 
 const persistConfig = {
     key: 'root',
@@ -10,6 +11,7 @@ const persistConfig = {
 
 const mainReducer = combineReducers({
     song: songReducer,
+    fav: favReducer
 })
 
 const persistedReducer = persistReducer(persistConfig, mainReducer)

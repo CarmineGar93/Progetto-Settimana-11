@@ -1,10 +1,12 @@
 import { Col, Row } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
-import { PlaySongAction, StopSongAction } from "../redux/actions/actions"
+import { AddToFavAction, PlaySongAction, RemoveFromFavAction, StopSongAction } from "../redux/actions/actions"
+
 
 function Playerfy() {
     const song = useSelector(state => state.song.song)
     const isPlaying = useSelector(state => state.song.isPlaying)
+    const fav = useSelector(state => state.fav.list)
     const dispatch = useDispatch()
     return (
         <Row className="h-100">
@@ -24,7 +26,7 @@ function Playerfy() {
                         }
 
                     </Col>
-                    <Col xs={6} md={4} className="playerControls">
+                    <Col xs={6} md={6} className="playerControls">
                         <div className="d-flex">
                             <a href="#a">
                                 <img src="/shuffle.png" alt="shuffle" />
@@ -35,11 +37,11 @@ function Playerfy() {
                             {
                                 isPlaying ? (
                                     <a href="#v">
-                                        <img src="/stop.png" alt="stop" className="custom-img" onClick={()=>dispatch(StopSongAction())}/>
+                                        <img src="/stop.png" alt="stop" className="custom-img" onClick={() => dispatch(StopSongAction())} />
                                     </a>
                                 ) : (
                                     <a href="#v">
-                                        <img src="/play.png" alt="play" onClick={()=>dispatch(PlaySongAction())} />
+                                        <img src="/play.png" alt="play" onClick={() => dispatch(PlaySongAction())} />
                                     </a>
                                 )
                             }
@@ -52,6 +54,18 @@ function Playerfy() {
                         </div>
                         <div className="progress mt-3">
                             <div role="progressbar"></div>
+                        </div>
+                    </Col>
+                    <Col xs={1}>
+                        <div className="text-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill={
+                                fav.find(s=> s.id === song.id) ? 'green' : "gray"
+                            } className="bi bi-heart-fill" viewBox="0 0 16 16"  onClick={() => {
+                                !fav.find(s=> s.id === song.id) ?
+                                  dispatch(AddToFavAction(song)) : dispatch(RemoveFromFavAction(song))
+                              }}>
+                                <path fillRule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+                            </svg>
                         </div>
                     </Col>
                 </Row>
