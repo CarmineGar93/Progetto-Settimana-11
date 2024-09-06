@@ -2,9 +2,11 @@ import { useEffect, useState } from 'react'
 import { Col, Row } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { AddSongAction, StopSongAction } from '../redux/actions/actions'
+import { useLocation } from 'react-router-dom'
 
 
 function Sectionfy(props) {
+    const location = useLocation().pathname
     const [songs, setSongs] = useState([])
     const fillMusicSection = async () => {
         try {
@@ -14,7 +16,12 @@ function Sectionfy(props) {
             if (response.ok) {
                 let { data } = await response.json()
                 console.log(data)
-                setSongs(data.slice(0,4))
+                if(location === '/') {
+                    setSongs(data.slice(0,4))
+                } else {
+                    setSongs(data.slice(0, 24))
+                }
+                
             } else {
                 throw new Error('Error in fetching songs')
             }
