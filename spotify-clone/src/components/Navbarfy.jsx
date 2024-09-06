@@ -2,7 +2,10 @@ import { Container, InputGroup, Button, Form, Navbar, Nav } from 'react-bootstra
 import house from '../house.svg'
 import book from '../book.svg'
 
+import Favouritefy from './Favouritefy'
+
 function Navbarfy() {
+    
     return (
         <Navbar expand="md" className="fixed-left justify-content-between">
             <Container className='flex-column align-items-start'>
@@ -35,6 +38,7 @@ function Navbarfy() {
                     </Nav>
                 </Navbar.Collapse>
             </Container>
+            <Favouritefy />
             <div className="d-flex flex-column align-items-center w-100">
                 <Button className='signup-btn'>Sign Up</Button>
                 <Button className="login-btn" type="button">Login</Button>
