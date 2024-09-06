@@ -3,9 +3,10 @@ import house from '../house.svg'
 import book from '../book.svg'
 
 import Favouritefy from './Favouritefy'
+import { useState } from 'react'
 
 function Navbarfy() {
-    
+    const[tofind, setTofind] = useState('')
     return (
         <Navbar expand="md" className="fixed-left justify-content-between">
             <Container className='flex-column align-items-start'>
@@ -30,6 +31,8 @@ function Navbarfy() {
                                 placeholder="Search"
                                 aria-label="Search"
                                 aria-describedby="basic-addon2"
+                                value={tofind}
+                                onChange={(e)=>setTofind(e.target.value)}
                             />
                             <Button variant="outline-secondary" id="button-addon2">
                                 Go

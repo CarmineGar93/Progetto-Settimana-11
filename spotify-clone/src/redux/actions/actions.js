@@ -1,4 +1,5 @@
 export const ADD_SONG = 'ADD_SONG'
+export const ADD_SEARCH = 'ADD_SEARCH'
 export const STOP_SONG = 'STOP_SONG'
 export const PLAY_SONG = 'PLAY_SONG'
 export const ADD_TO_FAV = 'ADD_TO_FAV'
@@ -32,5 +33,12 @@ export const RemoveFromFavAction = (song) => {
     return {
         type: REMOVE_FROM_FAV,
         payload: song
+    }
+}
+
+export const AddSearchAction = (search) => {
+    return {
+        type: ADD_SEARCH,
+        payload: search
     }
 }
