@@ -27,7 +27,7 @@ function Mainfy() {
             }
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isPlaying, song.preview])
+    }, [isPlaying, song])
     return (
         <>
             <Row>
