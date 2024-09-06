@@ -1,6 +1,7 @@
 import { Container, InputGroup, Button, Form, Navbar, Nav } from 'react-bootstrap'
 import house from '../house.svg'
 import book from '../book.svg'
+import {Link} from 'react-router-dom'
 
 import Favouritefy from './Favouritefy'
 import { useState } from 'react'
@@ -26,9 +27,7 @@ function Navbarfy() {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className='flex-column'>
-                        <Nav.Link href="#home" className='d-flex flex align-items-center mb-2'>
-                            <img alt='' src={house}></img> &nbsp; Home
-                        </Nav.Link>
+                        <Link to='/' className='nav-link d-flex flex align-items-center mb-2'><img alt='' src={house}></img> &nbsp; Home</Link>
                         <Nav.Link href="#home" className='d-flex align-items-center mb-2'>
                             <img alt='' src={book}></img> &nbsp; Library
                         </Nav.Link>

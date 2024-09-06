@@ -10,13 +10,13 @@ function Favouritefy() {
                     {
                         fav.map((s)=>{
                             return (
-                                <Row className='g-0' key={s.id}>
+                                <Row className='g-0 mb-2' key={s.id}>
                                 <Col xs={4}>
                                     <img alt='' src={s.album.cover_small}></img>
                                 </Col>
                                 <Col xs={6}>
                                     <p className='custom mb-0'>{s.title}</p>
-                                    <p className='custom'>{s.artist.name}</p>
+                                    <p className='custom mb-0'>{s.artist.name}</p>
                                 </Col>
                                 </Row>
                             )

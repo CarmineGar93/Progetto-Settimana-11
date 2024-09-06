@@ -11,6 +11,10 @@ function Mainfy() {
     const audioRef = useRef(null); // Riferimento all'elemento audio
     const dispatch = useDispatch()
     useEffect(()=>{
+        dispatch(StopSongAction())
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+    useEffect(()=>{
         if(!isMounted){
             setisMounted(true)
             return
@@ -23,7 +27,7 @@ function Mainfy() {
             }
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isPlaying])
+    }, [isPlaying, song.preview])
     return (
         <>
             <Row>
@@ -41,7 +45,7 @@ function Mainfy() {
                 <Sectionfy title='HipHop Classics' search='eminem' />
                 <div className=" invisible custom-margin">
                     {
-                        song && <audio ref={audioRef} src={song.preview} onEnded={()=>dispatch(StopSongAction())} autoPlay></audio>
+                        song && <audio ref={audioRef} src={song.preview} onEnded={()=>dispatch(StopSongAction())}></audio>
                     }
                     
                 </div>

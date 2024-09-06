@@ -5,6 +5,7 @@ import './App.css';
 import Navbarfy from './components/Navbarfy';
 import Mainfy from './components/Mainfy';
 import Playerfy from './components/Playerfy';
+import Searchfy from './components/Searchfy';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
           <Col xs={12} md={9} className='offset-md-3 main-page'>
           <Routes>
             <Route path='/' element={<Mainfy />}></Route>
-            <Route path='/search/:search' element={<Mainfy />} />
+            <Route path='/search/:search' element={<Searchfy />} />
           </Routes>
           </Col>
         </Row>
