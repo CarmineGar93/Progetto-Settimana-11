@@ -52,8 +52,8 @@ function Playerfy() {
                                 <img src="/repeat.png" alt="repeat" />
                             </a>
                         </div>
-                        <div className="progress mt-3">
-                            <div role="progressbar"></div>
+                        <div className="progress mt-3 player-bar">
+                            <div role="progressbar" className="player-bar-fill"></div>
                         </div>
                     </Col>
                     <Col xs={1} className=" d-none d-sm-block">

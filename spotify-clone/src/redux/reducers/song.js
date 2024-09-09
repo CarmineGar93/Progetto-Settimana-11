@@ -1,8 +1,9 @@
-import {ADD_SONG, STOP_SONG, PLAY_SONG} from '../actions/actions'
+import {ADD_SONG, STOP_SONG, PLAY_SONG, UP_PROGRESS} from '../actions/actions'
 
 const initialState = {
     song: null,
     isPlaying: false,
+    progress: '0',
 };
 
 const songReducer = (state = initialState, action) => {
@@ -23,6 +24,11 @@ const songReducer = (state = initialState, action) => {
                 ...state,
                 isPlaying: true,
             };
+            case UP_PROGRESS: 
+            return {
+                ...state,
+                progress: action.payload
+            }
         default:
             return state;
     }
