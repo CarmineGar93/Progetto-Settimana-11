@@ -6,6 +6,7 @@ import { AddToFavAction, PlaySongAction, RemoveFromFavAction, StopSongAction } f
 function Playerfy() {
     const song = useSelector(state => state.song.song)
     const isPlaying = useSelector(state => state.song.isPlaying)
+    const progress = useSelector(state => state.song.progress)
     const fav = useSelector(state => state.fav.list)
     const dispatch = useDispatch()
     return (
@@ -53,7 +54,7 @@ function Playerfy() {
                             </a>
                         </div>
                         <div className="progress mt-3 player-bar">
-                            <div role="progressbar" className="player-bar-fill"></div>
+                            <div role="progressbar" className="player-bar-fill" style={{width: `${progress}%`}}></div>
                         </div>
                     </Col>
                     <Col xs={1} className=" d-none d-sm-block">
