@@ -1,7 +1,7 @@
 import { Col, Row } from "react-bootstrap";
 import Sectionfy from "./Sectionfy";
 import { useDispatch, useSelector } from "react-redux";
-import { StopSongAction } from "../redux/actions/actions";
+import { StopSongAction, UpProgressAction } from "../redux/actions/actions";
 import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -12,8 +12,13 @@ function Searchfy() {
     const isPlaying = useSelector(state => state.song.isPlaying)
     const audioRef = useRef(null); // Riferimento all'elemento audio
     const dispatch = useDispatch()
+    const handleProgress = () => {
+        const progress = (audioRef.current.currentTime / audioRef.current.duration) * 100;
+        dispatch(UpProgressAction(progress))
+    }
     useEffect(() => {
         dispatch(StopSongAction())
+        dispatch(UpProgressAction(0))
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     useEffect(() => {
@@ -45,7 +50,9 @@ function Searchfy() {
                 <Sectionfy title={`Results for "${params}"`} search={params} />
                 <div className=" invisible custom-margin">
                     {
-                        song && <audio ref={audioRef} src={song.preview} onEnded={() => dispatch(StopSongAction())}></audio>
+                        song && <audio ref={audioRef} src={song.preview} onTimeUpdate={()=>handleProgress()} onEnded={()=>{
+                            dispatch(StopSongAction())
+                            dispatch(UpProgressAction(0))}}></audio>
                     }
 
                 </div>

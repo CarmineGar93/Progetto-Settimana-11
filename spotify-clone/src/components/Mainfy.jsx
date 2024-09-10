@@ -16,6 +16,7 @@ function Mainfy() {
     }
     useEffect(()=>{
         dispatch(StopSongAction())
+        dispatch(UpProgressAction(0))
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     useEffect(()=>{
@@ -49,7 +50,9 @@ function Mainfy() {
                 <Sectionfy title='HipHop Classics' search='eminem' />
                 <div className=" invisible custom-margin">
                     {
-                        song && <audio ref={audioRef} src={song.preview} onTimeUpdate={()=>handleProgress()} onEnded={()=>dispatch(StopSongAction())}></audio>
+                        song && <audio ref={audioRef} src={song.preview} onTimeUpdate={()=>handleProgress()} onEnded={()=>{
+                            dispatch(StopSongAction())
+                            dispatch(UpProgressAction(0))}}></audio>
                     }
                     
                 </div>
